@@ -20,7 +20,9 @@ export {
 } from "./store";
 export {
   DesignerCanvas,
+  exportDesignerCanvasAsPng,
   ProductDesigner,
   type DesignerCanvasProps,
+  type ExportDesignerCanvasOptions,
   type ProductDesignerProps,
 } from "./components";
