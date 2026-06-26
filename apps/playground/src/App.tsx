@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ProductDesigner } from '@open-product-designer/react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -28,6 +29,7 @@ function App() {
         >
           Count is {count}
         </button>
+        <ProductDesigner />
       </section>
 
       <div className="ticks"></div>
