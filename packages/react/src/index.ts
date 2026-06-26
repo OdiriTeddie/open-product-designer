@@ -18,7 +18,9 @@ export {
   type DesignerStoreOptions,
   type DesignerStoreState,
 } from "./store";
-
-export function ProductDesigner() {
-  return null;
-}
+export {
+  DesignerCanvas,
+  ProductDesigner,
+  type DesignerCanvasProps,
+  type ProductDesignerProps,
+} from "./components";
