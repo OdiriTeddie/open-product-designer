@@ -1,4 +1,9 @@
-export { DesignerCanvas, type DesignerCanvasProps } from "./designer-canvas";
+export {
+  DesignerCanvas,
+  exportDesignerCanvasAsPng,
+  type DesignerCanvasProps,
+  type ExportDesignerCanvasOptions,
+} from "./designer-canvas";
 export {
   ProductDesigner,
   type ProductDesignerProps,

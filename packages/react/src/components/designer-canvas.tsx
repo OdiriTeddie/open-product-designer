@@ -27,8 +27,26 @@ export type DesignerCanvasProps = {
   style?: CSSProperties;
 };
 
+export type ExportDesignerCanvasOptions = {
+  multiplier?: number;
+};
+
 const PRODUCT_PLACEHOLDER_ID = "__opd_product_placeholder__";
 const PRINT_AREA_ID = "__opd_print_area__";
+let activeDesignerCanvas: Canvas | null = null;
+
+export function exportDesignerCanvasAsPng(
+  options: ExportDesignerCanvasOptions = {},
+): string | null {
+  if (!activeDesignerCanvas) {
+    return null;
+  }
+
+  return activeDesignerCanvas.toDataURL({
+    format: "png",
+    multiplier: options.multiplier ?? 1,
+  });
+}
 
 function getActiveSide(
   template: ProductTemplate | null,
@@ -218,6 +236,7 @@ export function DesignerCanvas({ className, style }: DesignerCanvasProps) {
     });
 
     canvasRef.current = canvas;
+    activeDesignerCanvas = canvas;
 
     const handleSelection = () => {
       if (isRenderingFromStoreRef.current) {
@@ -257,6 +276,7 @@ export function DesignerCanvas({ className, style }: DesignerCanvasProps) {
     return () => {
       canvas.dispose();
       canvasRef.current = null;
+      activeDesignerCanvas = null;
     };
   }, [template]);
 
