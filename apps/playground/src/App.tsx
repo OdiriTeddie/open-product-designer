@@ -5,6 +5,25 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+const sampleTemplate = {
+  id: 'basic-shirt',
+  name: 'Basic T-Shirt',
+  width: 600,
+  height: 700,
+  sides: [
+    {
+      id: 'front',
+      name: 'Front',
+      printArea: {
+        x: 150,
+        y: 150,
+        width: 300,
+        height: 400,
+      },
+    },
+  ],
+}
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -29,7 +48,7 @@ function App() {
         >
           Count is {count}
         </button>
-        <ProductDesigner />
+        <ProductDesigner template={sampleTemplate} />
       </section>
 
       <div className="ticks"></div>
